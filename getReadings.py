@@ -2,7 +2,7 @@ import time
 import spidev
 import RPi.GPIO as GPIO
 def init():
-spi_ch = 0
+    spi_ch = 0
 
     # Enable SPI
     spi = spidev.SpiDev(0, spi_ch)
@@ -39,7 +39,7 @@ def read_adc(adc_ch, vref = 3.3):
     return voltage
 
 def read():
-        adc_0 = read_adc(0)
-        adc_1 = read_adc(1)
+        adc_0 = read_adc(0)#reads the value of channel 0 where the sensor should be
+        #adc_1 = read_adc(1)
         #print("Ch 0:", round(adc_0, 2), "V Ch 1:", round(adc_1, 2), "V")
         return round(adc_0, 2)
