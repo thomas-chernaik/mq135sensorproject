@@ -42,7 +42,7 @@ def processdata(file):
             #############################
             ##########transmitdata#######
             #############################
-            url = ("http://127.0.0.1:5000/readings")# the ip address and the port of the server
+            url = ("https://smello-vision.herokuapp.com/readings")# the ip address and the port of the server
             if(data != ""):#if there is data to send
                 transmitbyinternet.sendData(bytes(data, "utf-8"), url)#sends the data via websocket
             print(data)
