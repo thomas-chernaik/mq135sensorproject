@@ -1,8 +1,8 @@
-import socket, time
+import socket, time, requests
 """
 ipport is a tuple of IP address, port
 """
-def sendData(data, ipport):
+def sendDataSocket(data, ipport):
     # Create a socket object
     s = socket.socket()
     # connect to the server
@@ -12,3 +12,7 @@ def sendData(data, ipport):
     s.send(data)
     # close the connection
     s.close()
+
+
+def sendData(data, address):
+    r = requests.post(address, files={'file': data})

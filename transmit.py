@@ -42,9 +42,9 @@ def processdata(file):
             #############################
             ##########transmitdata#######
             #############################
-            ipport = ("127.0.0.1", 8080)# the ip address and the port of the server
+            url = ("http://127.0.0.1:5000/readings")# the ip address and the port of the server
             if(data != ""):#if there is data to send
-                transmitbyinternet.sendData(bytes(data, "utf-8"), ipport)#sends the data via websocket
+                transmitbyinternet.sendData(bytes(data, "utf-8"), url)#sends the data via websocket
             print(data)
 
             # it will error before here if the data doesn't send successfully
@@ -57,7 +57,8 @@ def processdata(file):
                     #clears the file so data isn't send twice
 
             time.sleep(3)
-        except:
+        except Exception as e:
+            print(e)
             pass
             #time.sleep(1)
 """
