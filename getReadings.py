@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 def init():
     spi_ch = 0
 
+    global spi
     # Enable SPI
     spi = spidev.SpiDev(0, spi_ch)
     spi.max_speed_hz = 1200000
@@ -39,6 +40,7 @@ def read_adc(adc_ch, vref = 3.3):
     return voltage
 
 def read():
+        global spi
         adc_0 = read_adc(0)#reads the value of channel 0 where the sensor should be
         #adc_1 = read_adc(1)
         #print("Ch 0:", round(adc_0, 2), "V Ch 1:", round(adc_1, 2), "V")

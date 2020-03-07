@@ -1,8 +1,8 @@
 import time
 import datetime
 import random
-#import getReadings
-#getReadings.init()
+import getReadings
+getReadings.init()
 num = 0.0
 #location = input("please enter the location of the device")#need to find a better way of getting the location
 
@@ -34,7 +34,7 @@ def store(file, freq):
             #print(strnow)
             #var = getData() + "," + location + ",50.0,-0.1,"  + strnow + "\n"
             gps = "50.0,-0.1"
-            var = "%s,%s,%s,%s\n" %(strnow, location, gps, getData())#change to getreadings
+            var = "%s,%s,%s,%s\n" %(strnow, location, gps, getReadings.read())#change to getreadings
             print(bytes(var, 'utf-8'))
             myfile.write(var)
             time.sleep(1/freq)
