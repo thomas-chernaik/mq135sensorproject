@@ -1,0 +1,14 @@
+[Unit]
+Description=upload readings service
+After=network-online.target
+[Service]
+ExecStart=/usr/bin/python3 -m transmit.py
+WorkingDirectory=/home/pi/mq135sensorproject
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+[Install]
+WantedBy=multi-user.target
+
+

@@ -1,0 +1,14 @@
+[Unit]
+Description=android bluetooth
+After=network-online.target
+[Service]
+ExecStart=sudo /usr/bin/python3 -m bluetoothgetLocation.py
+WorkingDirectory=/home/pi/mq135sensorproject
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+[Install]
+WantedBy=multi-user.target
+
+
