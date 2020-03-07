@@ -29,7 +29,10 @@ def getLocation():
             data = client_sock.recv(1024)
             if data:
                 break
-            print("Received", data)
+        txtdata = data.decode("utf-8")
+        txtbits = txtdata.split(" ")
+        if txtbits[0] == "LOC":
+            print("Received", txtdata)
 
     except OSError:
         pass
@@ -39,7 +42,7 @@ def getLocation():
     client_sock.close()
     server_sock.close()
     print("All done.")
-    return data
+    return txtbits[1].replace("\r","").replace("\n","")
 
 file = "location.txt"
 
