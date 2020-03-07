@@ -1,4 +1,12 @@
 import bluetooth
+import time, subprocess
+
+# Subprocess has to be run after bluetoothservice is up, therefore the sleep is there
+time.sleep(5)
+cmd = 'hciconfig hci0 piscan'
+subprocess.check_output(cmd, shell = True )
+
+
 def getLocation():
 
     server_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
