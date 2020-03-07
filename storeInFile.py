@@ -26,7 +26,7 @@ def store(file, freq):
     while True:
         with open(file, "a") as myfile:
             with open("location.txt", "r") as myfile1:
-                location = myfile1.read()
+                location = myfile1.read().replace('\n','')
             #var = getReadings.read() + "," + datetime.datetime.now() + "\n"
             #print(str(datetime.datetime.now()).split(":")[0]) this gives the date and hour
             now = datetime.datetime.now()
@@ -35,6 +35,7 @@ def store(file, freq):
             #var = getData() + "," + location + ",50.0,-0.1,"  + strnow + "\n"
             gps = "50.0,-0.1"
             var = "%s,%s,%s,%s\n" %(strnow, location, gps, getData())#change to getreadings
+            print(bytes(var, 'utf-8'))
             myfile.write(var)
             time.sleep(1/freq)
             i+=1
