@@ -35,7 +35,7 @@ def store(file, freq):
             #var = getData() + "," + location + ",50.0,-0.1,"  + strnow + "\n"
             gps = "50.0,-0.1"
             var = "%s,%s,%s,%s\n" %(strnow, location, gps, getReadings.read())#change to getreadings
-            print(bytes(var, 'utf-8'))
+            #print(bytes(var, 'utf-8'))
             myfile.write(var)
             time.sleep(1/freq)
             i+=1

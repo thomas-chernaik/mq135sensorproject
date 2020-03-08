@@ -16,4 +16,4 @@ def sendDataSocket(data, ipport):
 
 def sendData(data, address):
     r = requests.post(address, files={'file': data})
-    print(r)
+    print("code %s" % (r.status_code))
