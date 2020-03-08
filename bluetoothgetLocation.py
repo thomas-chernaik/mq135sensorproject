@@ -39,14 +39,8 @@ def getLocation():
                 break
         txtdata = data.decode("utf-8")
         txtbits = txtdata.split(" ")
-        if txtbits[0].lower() == "loc":
+        if txtbits[0] == "LOC":
             print("Received", txtdata)
-        elif txtbits[0].lower() == "reboot":
-            cmd = "sudo reboot"
-            subprocess.check_output(cmd, shell = True )
-        elif txtbits[0].lower() == "shutdown":
-            cmd = "sudo shutdown -h now"
-            subprocess.check_output(cmd, shell = True )
 
     except OSError:
         pass
